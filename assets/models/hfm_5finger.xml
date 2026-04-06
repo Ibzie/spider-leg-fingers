@@ -1,0 +1,110 @@
+<mujoco model="human_hand_5finger">
+  <compiler angle="degree"/>
+  <option timestep="0.002" gravity="0 0 -9.81"/>
+  <default><joint damping="0.05"/><geom friction="0.8 0.01 0.01"/></default>
+  <worldbody>
+    <light diffuse="0.5 0.5 0.5" pos="0 0 3" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="1 1 0.1" rgba="0.9 0.9 0.9 1"/>
+    <body name="palm" pos="0 0 0.1">
+      <geom name="palm_geom" type="box" size="0.04 0.06 0.01" rgba="0.7 0.6 0.5 1"/>
+      <freejoint name="palm_root"/>
+      <body name="thumb" pos="-0.02 -0.04 0" euler="0 0 -60">
+        <joint name="thumb_mcp_flex" type="hinge" axis="0 1 0" range="-10 90"/>
+        <geom name="thumb_proximal" type="capsule" size="0.005" fromto="0 0 0 0 0 0.04" rgba="0.7 0.6 0.5 1"/>
+        <body name="thumb_mid" pos="0 0 0.04">
+          <joint name="thumb_pip" type="hinge" axis="0 1 0" range="0 100"/>
+          <geom name="thumb_middle" type="capsule" size="0.0045000000000000005" fromto="0 0 0 0 0 0.025" rgba="0.65 0.55 0.45 1"/>
+          <body name="thumb_dis" pos="0 0 0.025">
+            <joint name="thumb_dip" type="hinge" axis="0 1 0" range="0 80"/>
+            <geom name="thumb_distal" type="capsule" size="0.004" fromto="0 0 0 0 0 0.02" rgba="0.6 0.5 0.4 1"/>
+            <site name="thumb_tip" pos="0 0 0.02" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="index" pos="0.03 -0.02 0" euler="0 0 -15">
+        <joint name="index_mcp_flex" type="hinge" axis="0 1 0" range="-10 90"/>
+        <joint name="index_mcp_abd" type="hinge" axis="0 0 1" range="-20 20"/>
+        <geom name="index_proximal" type="capsule" size="0.005" fromto="0 0 0 0 0 0.04" rgba="0.7 0.6 0.5 1"/>
+        <body name="index_mid" pos="0 0 0.04">
+          <joint name="index_pip" type="hinge" axis="0 1 0" range="0 100"/>
+          <geom name="index_middle" type="capsule" size="0.0045000000000000005" fromto="0 0 0 0 0 0.025" rgba="0.65 0.55 0.45 1"/>
+          <body name="index_dis" pos="0 0 0.025">
+            <joint name="index_dip" type="hinge" axis="0 1 0" range="0 80"/>
+            <geom name="index_distal" type="capsule" size="0.004" fromto="0 0 0 0 0 0.02" rgba="0.6 0.5 0.4 1"/>
+            <site name="index_tip" pos="0 0 0.02" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="middle" pos="0.035 0 0" euler="0 0 0">
+        <joint name="middle_mcp_flex" type="hinge" axis="0 1 0" range="-10 90"/>
+        <joint name="middle_mcp_abd" type="hinge" axis="0 0 1" range="-20 20"/>
+        <geom name="middle_proximal" type="capsule" size="0.005" fromto="0 0 0 0 0 0.04" rgba="0.7 0.6 0.5 1"/>
+        <body name="middle_mid" pos="0 0 0.04">
+          <joint name="middle_pip" type="hinge" axis="0 1 0" range="0 100"/>
+          <geom name="middle_middle" type="capsule" size="0.0045000000000000005" fromto="0 0 0 0 0 0.025" rgba="0.65 0.55 0.45 1"/>
+          <body name="middle_dis" pos="0 0 0.025">
+            <joint name="middle_dip" type="hinge" axis="0 1 0" range="0 80"/>
+            <geom name="middle_distal" type="capsule" size="0.004" fromto="0 0 0 0 0 0.02" rgba="0.6 0.5 0.4 1"/>
+            <site name="middle_tip" pos="0 0 0.02" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="ring" pos="0.03 0.02 0" euler="0 0 15">
+        <joint name="ring_mcp_flex" type="hinge" axis="0 1 0" range="-10 90"/>
+        <joint name="ring_mcp_abd" type="hinge" axis="0 0 1" range="-20 20"/>
+        <geom name="ring_proximal" type="capsule" size="0.005" fromto="0 0 0 0 0 0.04" rgba="0.7 0.6 0.5 1"/>
+        <body name="ring_mid" pos="0 0 0.04">
+          <joint name="ring_pip" type="hinge" axis="0 1 0" range="0 100"/>
+          <geom name="ring_middle" type="capsule" size="0.0045000000000000005" fromto="0 0 0 0 0 0.025" rgba="0.65 0.55 0.45 1"/>
+          <body name="ring_dis" pos="0 0 0.025">
+            <joint name="ring_dip" type="hinge" axis="0 1 0" range="0 80"/>
+            <geom name="ring_distal" type="capsule" size="0.004" fromto="0 0 0 0 0 0.02" rgba="0.6 0.5 0.4 1"/>
+            <site name="ring_tip" pos="0 0 0.02" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="pinky" pos="0.02 0.04 0" euler="0 0 30">
+        <joint name="pinky_mcp_flex" type="hinge" axis="0 1 0" range="-10 90"/>
+        <joint name="pinky_mcp_abd" type="hinge" axis="0 0 1" range="-20 20"/>
+        <geom name="pinky_proximal" type="capsule" size="0.005" fromto="0 0 0 0 0 0.04" rgba="0.7 0.6 0.5 1"/>
+        <body name="pinky_mid" pos="0 0 0.04">
+          <joint name="pinky_pip" type="hinge" axis="0 1 0" range="0 100"/>
+          <geom name="pinky_middle" type="capsule" size="0.0045000000000000005" fromto="0 0 0 0 0 0.025" rgba="0.65 0.55 0.45 1"/>
+          <body name="pinky_dis" pos="0 0 0.025">
+            <joint name="pinky_dip" type="hinge" axis="0 1 0" range="0 80"/>
+            <geom name="pinky_distal" type="capsule" size="0.004" fromto="0 0 0 0 0 0.02" rgba="0.6 0.5 0.4 1"/>
+            <site name="pinky_tip" pos="0 0 0.02" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="thumb_mcp_flex_act" joint="thumb_mcp_flex" kp="80" kv="8"/>
+    <position name="thumb_pip_act" joint="thumb_pip" kp="60" kv="6"/>
+    <position name="thumb_dip_act" joint="thumb_dip" kp="50" kv="5"/>
+    <position name="index_mcp_flex_act" joint="index_mcp_flex" kp="80" kv="8"/>
+    <position name="index_mcp_abd_act" joint="index_mcp_abd" kp="40" kv="4"/>
+    <position name="index_pip_act" joint="index_pip" kp="60" kv="6"/>
+    <position name="index_dip_act" joint="index_dip" kp="50" kv="5"/>
+    <position name="middle_mcp_flex_act" joint="middle_mcp_flex" kp="80" kv="8"/>
+    <position name="middle_mcp_abd_act" joint="middle_mcp_abd" kp="40" kv="4"/>
+    <position name="middle_pip_act" joint="middle_pip" kp="60" kv="6"/>
+    <position name="middle_dip_act" joint="middle_dip" kp="50" kv="5"/>
+    <position name="ring_mcp_flex_act" joint="ring_mcp_flex" kp="80" kv="8"/>
+    <position name="ring_mcp_abd_act" joint="ring_mcp_abd" kp="40" kv="4"/>
+    <position name="ring_pip_act" joint="ring_pip" kp="60" kv="6"/>
+    <position name="ring_dip_act" joint="ring_dip" kp="50" kv="5"/>
+    <position name="pinky_mcp_flex_act" joint="pinky_mcp_flex" kp="80" kv="8"/>
+    <position name="pinky_mcp_abd_act" joint="pinky_mcp_abd" kp="40" kv="4"/>
+    <position name="pinky_pip_act" joint="pinky_pip" kp="60" kv="6"/>
+    <position name="pinky_dip_act" joint="pinky_dip" kp="50" kv="5"/>
+  </actuator>
+  <sensor>
+    <touch name="thumb_touch" site="thumb_tip"/>
+    <touch name="index_touch" site="index_tip"/>
+    <touch name="middle_touch" site="middle_tip"/>
+    <touch name="ring_touch" site="ring_tip"/>
+    <touch name="pinky_touch" site="pinky_tip"/>
+  </sensor>
+</mujoco>

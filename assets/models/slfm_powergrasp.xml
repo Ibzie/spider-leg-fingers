@@ -1,0 +1,110 @@
+<mujoco model="spider_hand_powergrasp">
+  <compiler angle="degree"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
+  <default>
+    <joint damping="0.5" armature="0.01"/>
+    <geom friction="1.0 0.005 0.0001" condim="3"/>
+  </default>
+  <worldbody>
+    <light diffuse="0.5 0.5 0.5" pos="0 0 3" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="1 1 0.1" rgba="0.9 0.9 0.9 1"/>
+    
+    <body name="cylinder" pos="0.05 0 0.04">
+      <freejoint name="cylinder_root"/>
+      <geom name="cylinder_geom" type="cylinder" size="0.015 0.04" mass="0.5" rgba="0.2 0.6 0.8 1"/>
+    </body>
+    
+    <body name="palm" pos="0 0 0.08">
+      <geom name="palm_geom" type="box" size="0.04 0.06 0.01" rgba="0.5 0.4 0.3 1"/>
+      <body name="thumb" pos="-0.02 -0.04 0" euler="0 0 -60">
+        <joint name="thumb_coxa_joint" type="hinge" axis="0 0 1" range="-60 60"/>
+        <geom name="thumb_coxa_geom" type="capsule" size="0.004" fromto="0 0 0 0.015 0 0" rgba="0.4 0.3 0.2 1"/>
+        <body name="thumb_femur" pos="0.015 0 0">
+          <joint name="thumb_femur_joint" type="hinge" axis="0 1 0" range="-45 90"/>
+          <geom name="thumb_femur_geom" type="capsule" size="0.004" fromto="0 0 0 0.035 0 0" rgba="0.4 0.3 0.2 1"/>
+          <body name="thumb_tibia" pos="0.035 0 0">
+            <joint name="thumb_tibia_joint" type="hinge" axis="0 1 0" range="0 120"/>
+            <geom name="thumb_tibia_geom" type="capsule" size="0.0032" fromto="0 0 0 0.05 0 0" rgba="0.3 0.2 0.15 1"/>
+            <site name="thumb_tip" pos="0.05 0 0" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="index" pos="0.03 -0.02 0" euler="0 0 -15">
+        <joint name="index_coxa_joint" type="hinge" axis="0 0 1" range="-60 60"/>
+        <geom name="index_coxa_geom" type="capsule" size="0.004" fromto="0 0 0 0.015 0 0" rgba="0.4 0.3 0.2 1"/>
+        <body name="index_femur" pos="0.015 0 0">
+          <joint name="index_femur_joint" type="hinge" axis="0 1 0" range="-45 90"/>
+          <geom name="index_femur_geom" type="capsule" size="0.004" fromto="0 0 0 0.035 0 0" rgba="0.4 0.3 0.2 1"/>
+          <body name="index_tibia" pos="0.035 0 0">
+            <joint name="index_tibia_joint" type="hinge" axis="0 1 0" range="0 120"/>
+            <geom name="index_tibia_geom" type="capsule" size="0.0032" fromto="0 0 0 0.05 0 0" rgba="0.3 0.2 0.15 1"/>
+            <site name="index_tip" pos="0.05 0 0" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="middle" pos="0.035 0 0" euler="0 0 0">
+        <joint name="middle_coxa_joint" type="hinge" axis="0 0 1" range="-60 60"/>
+        <geom name="middle_coxa_geom" type="capsule" size="0.004" fromto="0 0 0 0.015 0 0" rgba="0.4 0.3 0.2 1"/>
+        <body name="middle_femur" pos="0.015 0 0">
+          <joint name="middle_femur_joint" type="hinge" axis="0 1 0" range="-45 90"/>
+          <geom name="middle_femur_geom" type="capsule" size="0.004" fromto="0 0 0 0.035 0 0" rgba="0.4 0.3 0.2 1"/>
+          <body name="middle_tibia" pos="0.035 0 0">
+            <joint name="middle_tibia_joint" type="hinge" axis="0 1 0" range="0 120"/>
+            <geom name="middle_tibia_geom" type="capsule" size="0.0032" fromto="0 0 0 0.05 0 0" rgba="0.3 0.2 0.15 1"/>
+            <site name="middle_tip" pos="0.05 0 0" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="ring" pos="0.03 0.02 0" euler="0 0 15">
+        <joint name="ring_coxa_joint" type="hinge" axis="0 0 1" range="-60 60"/>
+        <geom name="ring_coxa_geom" type="capsule" size="0.004" fromto="0 0 0 0.015 0 0" rgba="0.4 0.3 0.2 1"/>
+        <body name="ring_femur" pos="0.015 0 0">
+          <joint name="ring_femur_joint" type="hinge" axis="0 1 0" range="-45 90"/>
+          <geom name="ring_femur_geom" type="capsule" size="0.004" fromto="0 0 0 0.035 0 0" rgba="0.4 0.3 0.2 1"/>
+          <body name="ring_tibia" pos="0.035 0 0">
+            <joint name="ring_tibia_joint" type="hinge" axis="0 1 0" range="0 120"/>
+            <geom name="ring_tibia_geom" type="capsule" size="0.0032" fromto="0 0 0 0.05 0 0" rgba="0.3 0.2 0.15 1"/>
+            <site name="ring_tip" pos="0.05 0 0" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+      <body name="pinky" pos="0.02 0.04 0" euler="0 0 30">
+        <joint name="pinky_coxa_joint" type="hinge" axis="0 0 1" range="-60 60"/>
+        <geom name="pinky_coxa_geom" type="capsule" size="0.004" fromto="0 0 0 0.015 0 0" rgba="0.4 0.3 0.2 1"/>
+        <body name="pinky_femur" pos="0.015 0 0">
+          <joint name="pinky_femur_joint" type="hinge" axis="0 1 0" range="-45 90"/>
+          <geom name="pinky_femur_geom" type="capsule" size="0.004" fromto="0 0 0 0.035 0 0" rgba="0.4 0.3 0.2 1"/>
+          <body name="pinky_tibia" pos="0.035 0 0">
+            <joint name="pinky_tibia_joint" type="hinge" axis="0 1 0" range="0 120"/>
+            <geom name="pinky_tibia_geom" type="capsule" size="0.0032" fromto="0 0 0 0.05 0 0" rgba="0.3 0.2 0.15 1"/>
+            <site name="pinky_tip" pos="0.05 0 0" size="0.005" type="sphere" rgba="1 0 0 0.5"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="thumb_coxa_act" joint="thumb_coxa_joint" kp="100" kv="10"/>
+    <position name="thumb_femur_act" joint="thumb_femur_joint" kp="100" kv="10"/>
+    <position name="thumb_tibia_act" joint="thumb_tibia_joint" kp="150" kv="15"/>
+    <position name="index_coxa_act" joint="index_coxa_joint" kp="100" kv="10"/>
+    <position name="index_femur_act" joint="index_femur_joint" kp="100" kv="10"/>
+    <position name="index_tibia_act" joint="index_tibia_joint" kp="150" kv="15"/>
+    <position name="middle_coxa_act" joint="middle_coxa_joint" kp="100" kv="10"/>
+    <position name="middle_femur_act" joint="middle_femur_joint" kp="100" kv="10"/>
+    <position name="middle_tibia_act" joint="middle_tibia_joint" kp="150" kv="15"/>
+    <position name="ring_coxa_act" joint="ring_coxa_joint" kp="100" kv="10"/>
+    <position name="ring_femur_act" joint="ring_femur_joint" kp="100" kv="10"/>
+    <position name="ring_tibia_act" joint="ring_tibia_joint" kp="150" kv="15"/>
+    <position name="pinky_coxa_act" joint="pinky_coxa_joint" kp="100" kv="10"/>
+    <position name="pinky_femur_act" joint="pinky_femur_joint" kp="100" kv="10"/>
+    <position name="pinky_tibia_act" joint="pinky_tibia_joint" kp="150" kv="15"/>
+  </actuator>
+  <sensor>
+    <touch name="thumb_touch" site="thumb_tip"/>
+    <touch name="index_touch" site="index_tip"/>
+    <touch name="middle_touch" site="middle_tip"/>
+    <touch name="ring_touch" site="ring_tip"/>
+    <touch name="pinky_touch" site="pinky_tip"/>
+  </sensor>
+</mujoco>
